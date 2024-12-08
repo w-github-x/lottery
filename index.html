@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运抽奖系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>幸运抽奖系统</h1>
+            <div class="theme-toggle">
+                <button id="themeToggle" class="theme-button">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+        
+        <div class="input-section">
+            <h2>参与者名单</h2>
+            <textarea id="nameList" placeholder="请粘贴名单数据，每行一个名字"></textarea>
+            <div class="controls">
+                <div class="draw-controls">
+                    <label for="drawCount">抽取数量：</label>
+                    <input type="number" id="drawCount" min="1" value="1">
+                    <div class="speed-control">
+                        <label for="drawSpeed">动画速度：</label>
+                        <select id="drawSpeed">
+                            <option value="fast">快速</option>
+                            <option value="normal" selected>正常</option>
+                            <option value="slow">慢速</option>
+                        </select>
+                    </div>
+                    <button id="drawButton" class="primary-button">开始抽奖</button>
+                </div>
+                <button id="clearButton" class="secondary-button">清空名单</button>
+            </div>
+        </div>
+
+        <div class="lottery-display">
+            <div class="animation-container">
+                <div id="drawAnimation" class="draw-animation">
+                    <div class="winner-display">
+                        <div class="winner-name">准备开始</div>
+                        <div class="winner-number"></div>
+                    </div>
+                </div>
+                <div id="confetti-canvas"></div>
+            </div>
+            <div id="winnersList" class="winners-list"></div>
+        </div>
+
+        <div class="summary-section">
+            <h2>抽奖概要</h2>
+            <div id="summary" class="summary-content">
+                <div class="summary-item">
+                    <div class="summary-icon">👥</div>
+                    <div class="summary-label">总参与人数</div>
+                    <div class="summary-value" id="totalParticipants">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">🎯</div>
+                    <div class="summary-label">已抽取人数</div>
+                    <div class="summary-value" id="totalDrawn">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-icon">📊</div>
+                    <div class="summary-label">剩余人数</div>
+                    <div class="summary-value" id="remainingCount">0</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>历史记录</h2>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/lottery.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
